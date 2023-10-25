@@ -6,7 +6,7 @@ from unidecode import unidecode
 import json
 
 secret_key = os.environ.get("API_KEY", "")
-URL = "https://api-inference.huggingface.co/models/snrspeaks/KeyPhraseTransformer"
+URL = "https://api-inference.huggingface.co/models/ml6team/keyphrase-extraction-kbir-inspec"
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Tokenizer HTTP trigger function processed a request.')
@@ -40,10 +40,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     )
     
     try:
-        logging.info(res.json())
-        tokens = res.json()[0]["generated_text"].split(" | ")
+        # Get unique tokens
+        tokens = list(set(map(lambda x: x["word"].strip(), res.json())))
+
         return func.HttpResponse(
-            json.dumps({"tokens": tokens}),
+            json.dumps(tokens),
             mimetype="application/json",
             status_code=200)
     except:

@@ -6,7 +6,7 @@ import json
 from unidecode import unidecode
 
 secret_key = os.environ.get("API_KEY", "")
-URL = "https://api-inference.huggingface.co/models/slauw87/bart_summarisation"
+URL = "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn"
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Generation HTTP trigger function processed a request.')
@@ -41,7 +41,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     
     try:
         output_text = unidecode(res.json()[0]['summary_text'])
-        response = {"message": output_text}
+        response = {"summary": output_text}
         return func.HttpResponse(
             json.dumps(response), 
             mimetype="application/json",
