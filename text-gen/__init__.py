@@ -33,7 +33,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         json = {
             "inputs": inputs,
             "options": {
-                "use_cache": True,
+                "use_cache": False,
                 "wait_for_model": True
             }
         }
