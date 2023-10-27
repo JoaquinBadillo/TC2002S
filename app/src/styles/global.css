@@ -209,7 +209,6 @@ button:disabled {
 	width: 90%;
 	margin: 0.8em auto;
 	padding: 1em 0;
-	height: 100vh;
 }
 
 .slide-content .summary {
@@ -222,10 +221,6 @@ button:disabled {
 	border-radius: 10px;
 }
 
-hr {
-	margin: 0.8em 0;
-}
-
 .content-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -233,4 +228,34 @@ hr {
 	align-items: center;
 	gap: 1em;
 	margin-bottom: 2em;
+}
+
+hr, .content-wrapper hr {
+	margin: 0.8em 0;
+	width: 100%;
+	color: black;
+}
+
+.flash-messages {
+	padding: 0.4em;
+	display: flex;
+	width: calc(100% - 2em);
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: 1em;
+}
+
+.error {
+	border-radius: 5px;
+	padding: 0.5em;
+	background: #ff000042;
+	display: flex;
+	justify-content: space-between;
+}
+
+.error button {
+	border: none;
+	background: transparent;
+	color: #ff0000;
+	font-weight: bold;
 }

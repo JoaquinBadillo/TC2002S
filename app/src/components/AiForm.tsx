@@ -1,11 +1,14 @@
 import { useState } from "preact/hooks";
 import Slide from "./Slide.tsx";
+import { Error } from "./Notification.tsx";
 
 export default function Form() {
 	const [loading, setLoading] = useState(false);
 	const [title, setTitle] = useState("");
 	const [summary, setSummary] = useState("");
 	const [img, setImg] = useState<any>(null);
+	const [error, setError] = useState("");
+	const [showError, setShowError] = useState(false);
 
 	async function submit(e: any) {
 		e.preventDefault();
@@ -18,6 +21,13 @@ export default function Form() {
 		  method: "POST",
 		  body: formData,
 		});
+
+		if (!response.ok) {
+		  setError("Failed to generate slide.");
+		  setShowError(true);
+		  setLoading(false);
+		  return;
+		}
 
 		const data = await response.json();
 
@@ -35,6 +45,7 @@ export default function Form() {
 
 	return (
 		<>
+		<Error message={error} show={showError} setShow={setShowError}/>
 		<main>
 			<h1>🤖 Generate a Slide</h1>
 			<form onSubmit={submit}>

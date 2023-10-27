@@ -37,11 +37,12 @@ export default function Slide({title, summary, img}: {title: string, summary: st
                     <h2 className="title">{title}</h2>
                     <p>{summary}</p>
                 </div>
-                <img 
-                src={`data:image/jpeg;base64,${img}`} 
-                alt="Generated Image" 
+                <img
+                  src={`data:image/jpeg;base64,${img}`} 
+                  alt="Generated Image" 
                 />
             </section>
+            <hr/>
             <button onClick={SlideToPDF} >Export</button>
         </div>
         </>
