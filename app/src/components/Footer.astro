@@ -3,7 +3,7 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Joaquín Badillo @ TC2002S
+	Joaquín Badillo &copy; {today.getFullYear()}
 	<div class="social-links">
 		<a href="https://github.com/JoaquinBadillo">
 			<span class="sr-only">My GitHub Profile</span>
@@ -18,7 +18,7 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 2em 1em;
+		padding: 2em 0;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
@@ -26,8 +26,7 @@ const today = new Date();
 	.social-links {
 		display: flex;
 		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		margin-top: 1.2em;
 	}
 	.social-links a {
 		text-decoration: none;
